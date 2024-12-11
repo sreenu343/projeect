@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Profile</title>
+    <link rel="stylesheet" href="/styles/ev.css"> <!-- Assuming you are using the same CSS file -->
+<link rel="stylesheet" href="/styles/first.css"> <!-- Corrected path to CSS -->
+</head>
+<body>
+
+  <!-- Header -->
+    <header>
+        <div class="text">CYR SEA FOODS</div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="/homePage">Home</a></li>
+            <li><a href="/harvest">Purchase</a></li>
+            <li><a href="#services">Plant Processing</a></li>
+            <li><a href="#contact">Sales</a></li>
+            <li><a href="#contact">Finance & Payments</a></li>
+            <li><a href="#contact">Reports</a></li>
+            <!-- Users Dropdown Menu -->
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Employee</a>
+                <div class="dropdown-content">
+                    <a href="/register">Create Employee</a>  
+                    <a href="/display">Employee Details</a> 
+                    <a href="/cpswd">Enable employee Password</a>
+                </div>
+            </li>
+            
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Profile</a>
+                <div class="dropdown-content">
+                    <a href="/mview">View Profile</a>
+                    <a href="/apswrdc">Change Password</a>
+                </div>
+            </li>
+
+            <!-- Logout Button placed right -->
+            <li class="logout-item"><a href="/logout" class="logout-btn">Logout</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Admin Profile Information -->
+    <div class="profile-container">
+        <h2>Welcome, <%= admin.FirstName %> <%= admin.LastName %></h2>
+
+        <!-- Profile Cards -->
+        <div class="profile-card">
+            <h4>Admin ID:</h4>
+            <p><%= admin.adminID %></p> <!-- AdminID displayed dynamically -->
+        </div>
+
+        <div class="profile-card">
+            <h4>First Name:</h4>
+            <p><%= admin.FirstName %></p>
+        </div>
+
+        <div class="profile-card">
+            <h4>Last Name:</h4>
+            <p><%= admin.LastName %></p>
+        </div>
+
+        <div class="profile-card">
+            <h4>Phone Number:</h4>
+            <p><%= admin.PhoneNumber %></p>
+        </div>
+
+        <div class="profile-card">
+            <h4>Job Title:</h4>
+            <p><%= admin.JobTitle %></p>
+        </div>
+
+        <div class="profile-card">
+            <h4>Department:</h4>
+            <p><%= admin.DepartmentName %></p>
+        </div>
+
+        <div class="profile-card">
+            <h4>Email:</h4>
+            <p><%= admin.Email %></p>
+        </div>
+
+        <div class="profile-card">
+            <h4>Address:</h4>
+            <p><%= admin.Address %></p>
+        </div>
+
+        <div class="profile-card">
+            <h4>Last Updated:</h4>
+            <p><%= admin.UpdatedAt %></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-spacer"></div>
+    <footer>
+        <p>&copy; 2024 CYR Sea Foods</p>
+    </footer>
+
+</body>
+</html>

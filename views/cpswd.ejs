@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enable Employee Password</title>
+ <link rel="stylesheet" href="/styles/first.css"> <!-- Corrected path to CSS -->
+    <style>
+        /* General Styles */
+        body {
+            
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+       
+        /* Form Styles */
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        form label {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        form input,
+        form select {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            box-sizing: border-box;
+        }
+
+        form button {
+            padding: 12px 20px;
+            background-color: #0056b3;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #003366;
+        }
+
+      
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="text">CYR SEA FOODS</div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="/homePage">Home</a></li>
+            <li><a href="/harvest">Purchase</a></li>
+            <li><a href="#services">Plant Processing</a></li>
+            <li><a href="#contact">Sales</a></li>
+            <li><a href="#contact">Finance & Payments</a></li>
+            <li><a href="#contact">Reports</a></li>
+            <!-- Users Dropdown Menu -->
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Employee</a>
+                <div class="dropdown-content">
+                    <a href="/register">Create Employee</a>  
+                    <a href="/display">Employee Details</a> 
+                    <a href="/cpswd">Enable employee Password</a>
+                </div>
+            </li>
+            
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Profile</a>
+                <div class="dropdown-content">
+                    <a href="/mview">View Profile</a>
+                    <a href="/apswrdc">Change Password</a>
+                </div>
+            </li>
+
+            <!-- Logout Button placed right -->
+            <li class="logout-item"><a href="/logout" class="logout-btn">Logout</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Form to enable employee password (or update flag) -->
+    <form action="/cpswd" method="POST">
+        <label for="EmployeeID">Employee ID</label>
+        <input type="number" id="EmployeeID" name="EmployeeID" required><br>
+
+        <label for="val">Value</label>
+        <select name="val" id="val">
+            <option value="3">1</option>
+            <option value="2">2</option>
+            <option value="1">3</option>
+        </select><br>
+
+        <button type="submit">Update</button>
+    </form>
+    
+   <footer>
+       &copy; 2024 CYR Sea Foods
+    </footer>
+
+</body>
+</html>

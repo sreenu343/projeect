@@ -1,0 +1,95 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    background-color: #f4f7fc;
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form styles */
+form {
+    background-color: #fff;
+    padding: 30px 40px;
+    width: 50%;
+    margin: 30px auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+form:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+
+/* Use flexbox for form fields */
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.input-group label {
+    width: 30%; /* Labels take up 30% of the space */
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    width: 70%; /* Inputs take up 70% of the space */
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 8px rgba(0, 86, 179, 0.2);
+}
+
+.input-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Submit button styles */
+button {
+    background: linear-gradient(45deg, #0056b3, #003366);
+    color: white;
+    padding: 12px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #003366, #0056b3);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+

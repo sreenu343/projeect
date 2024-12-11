@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Harvest Data</title>
+    <link rel="stylesheet" href="/styles/first.css">
+<link rel="stylesheet" href="/styles/vmod.css">
+<link rel="stylesheet" href="/styles/table.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            background-color: #f4f7fa;
+            min-height: 100vh;
+        }           
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header> CYR SEA FOODS </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="/homePage">Home</a></li>
+            <li><a href="/harvest">Purchase</a></li>
+            <li><a href="#services">Plant Processing</a></li>
+            <li><a href="#contact">Sales</a></li>
+            <li><a href="#contact">Finance & Payments</a></li>
+            <li><a href="#contact">Reports</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Employee</a>
+                <div class="dropdown-content">
+                    <a href="/register">Create Employee</a>
+                    <a href="/display">Employee Details</a>
+                    <a href="/cpswd">Enable employee Password</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Profile</a>
+                <div class="dropdown-content">
+                    <a href="/mview">View Profile</a>
+                    <a href="/apswrdc">Change Password</a>
+                </div>
+            </li>
+            <li class="logout-item"><a href="/logout" class="logout-btn">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Container -->
+    <div class="content-container">
+        <div class="top-controls">
+            <button class="add-btn" onclick="openForm()">ADD</button>
+
+            <div class="search-form">
+                <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchTable()">
+                <button onclick="clearSearch()">Clear</button>
+            </div>
+        </div>
+
+<div id="bac" class="bac"></div>
+
+<!-- Modal Add Harvest -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeForm()">&times;</span>
+        <h2 id="form-title">Add Harvest</h2>
+        <form class ="fm" id="harvest-form" action="/harvest" method="POST">
+	<div class="form-row">
+            <div class="fg">
+                <label for="BillNo">Bill No:</label>
+                <input type="number" id="BillNo" name="BillNo" required>
+            </div>
+
+            <div class="fg">
+                <label for="BillDate">Bill Date:</label>
+                <input type="date" id="BillDate" name="BillDate" required>
+            </div>
+
+            <div class="fg">
+                <label for="Agent">Agent:</label>
+                <input type="text" id="Agent" name="Agent" required>
+            </div>
+
+            <div class="fg">
+                <label for="Grader">Grader:</label>
+                <input type="text" id="Grader" name="Grader" required>
+            </div>
+
+            <div class="fg">
+                <label for="Supervisor">Supervisor:</label>
+                <input type="text" id="Supervisor" name="Supervisor" required>
+            </div>
+
+            <div class="fg">
+                <label for="Batch">Batch:</label>
+                <input type="text" id="Batch" name="Batch" required>
+            </div>
+
+            <div class="fg">
+                <label for="VehicleNo">Vehicle No:</label>
+                <input type="text" id="VehicleNo" name="VehicleNo" required>
+            </div>
+
+            <div class="fg">
+                <label for="Boxes">Boxes:</label>
+                <input type="number" id="Boxes" name="Boxes" required>
+            </div>
+
+            <div class="fg">
+                <label for="Count">Count:</label>
+                <input type="number" id="Count" name="Count" required>
+            </div>
+
+            <div class="fg">
+                <label for="Weight">Weight:</label>
+                <input type="number" id="Weight" name="Weight" step="any" required>
+            </div>
+
+            <div class="fg">
+                <label for="Rate">Rate:</label>
+                <input type="number" id="Rate" name="Rate" step="any" required>
+            </div>
+
+            <div class="fg">
+                <label for="SoftVibRol_sNecros">Soft Vib Rol (sNecros):</label>
+                <input type="text" id="SoftVibRol_sNecros" name="SoftVibRol_sNecros" step="any" required>
+            </div>     
+
+            <div class="fg">
+                <label for="Weight2">Weight 2:</label>
+                <input type="number" id="Weight2" name="Weight2" step="any" required>
+            </div>
+
+            <div class="fg">
+                <label for="Rate2">Rate2:</label>
+                <input type="number" id="Rate2" name="Rate2" step="any" required>
+            </div>
+
+	    <div class="fg">
+                <label for="CmRateperKG">Cm Rate per KG:</label>
+                <input type="number" id="CmRateperKG" name="CmRateperKG" step="any" required>
+            </div>
+
+          
+            <div class="fg">
+                <label for="RMPAID">RM Paid:</label>
+                <input type="number" id="RMPAID" name="RMPAID" required>
+            </div>
+
+            <div class="fg">
+                <label for="Details">Details:</label>
+                <input type="text" id="Details" name="Details" required>
+            </div>
+
+            <div class="fg">
+                <label for="PaymentDate">Payment Date:</label>
+                <input type="date" id="PaymentDate" name="PaymentDate" required>
+            </div>
+
+            <div class="fg">
+                <label for="RMAmountDebitedFrom">RM Amount Debited From:</label>
+                <input type="text" id="RMAmountDebitedFrom" name="RMAmountDebitedFrom" required>
+            </div>
+
+            <div class="fg">
+                <label for="CMPAID">CM Paid:</label>
+                <input type="number" id="CMPAID" name="CMPAID" required>
+            </div>
+
+            <div class="fg">
+                <label for="Details2">Details 2:</label>
+                <input type="text" id="Details2" name="Details2" required>
+            </div>
+
+            <div class="fg">
+                <label for="PaymentDate2">Payment Date 2:</label>
+                <input type="date" id="PaymentDate2" name="PaymentDate2" required>
+            </div>
+
+            <div class="fg">
+                <label for="CMAmountDebitedFrom">CM Amount Debited From:</label>
+                <input type="text" id="CMAmountDebitedFrom" name="CMAmountDebitedFrom" required>
+            </div>
+
+            <div class="fg">
+                <label for="Advances">Advances:</label>
+                <input type="number" id="Advances" name="Advances" required>
+            </div>
+</div>
+            <button type="submit" class="add-btn">Submit</button>
+        </form>
+    </div>
+</div>
+
+<!-- edit Harvest -->
+<div id="modall" class="modall">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeForm()">&times;</span>
+        <h2 id="form-title">Edit Harvest</h2>
+        <form class ="fm" id="harvest-form" action="/edit-harvest" method="POST">
+	<div class="form-row">
+            <div class="fg">
+                <label for="BillNo">Bill No:</label>
+                <input type="number" id="BillNoo" name="BillNoo" readonly>
+            </div>
+
+            <div class="fg">
+                <label for="BillDate">Bill Date:</label>
+                <input type="date" id="BillDatee" name="BillDatee">
+            </div>
+
+            <div class="fg">
+                <label for="Agent">Agent:</label>
+                <input type="text" id="Agentt" name="Agentt">
+            </div>
+
+            <div class="fg">
+                <label for="Grader">Grader:</label>
+                <input type="text" id="Graderr" name="Graderr" >
+            </div>
+
+            <div class="fg">
+                <label for="Supervisor">Superviser:</label>
+                <input type="text" id="Supervisorr" name="Supervisorr" >
+            </div>
+
+            <div class="fg">
+                <label for="Batch">Batch:</label>
+                <input type="text" id="Batchh" name="Batchh" >
+            </div>
+
+            <div class="fg">
+                <label for="VehicleNo">Vehicle No:</label>
+                <input type="text" id="VehicleNoo" name="VehicleNoo">
+            </div>
+
+            <div class="fg">
+                <label for="Boxes">Boxes:</label>
+                <input type="number" id="Boxess" name="Boxess" >
+            </div>
+
+            <div class="fg">
+                <label for="Count">Count:</label>
+                <input type="number" id="Countt" name="Countt" >
+            </div>
+
+            <div class="fg">
+                <label for="Weight">Weight:</label>
+                <input type="number" id="Weightt" name="Weightt" step="any">
+            </div>
+
+            <div class="fg">
+                <label for="Rate">Rate:</label>
+                <input type="number" id="Ratee" name="Ratee" step="any" >
+            </div>
+
+            <div class="fg">
+                <label for="SoftVibRol_sNecros">Soft,Vib,Ro,PD,L/S,Necros:</label>
+                <input type="text" id="SoftVibRol_sNecross" name="SoftVibRol_sNecross" step="any" >
+            </div>     
+
+            <div class="fg">
+                <label for="Weight2">Weight 2:</label>
+                <input type="number" id="Weight22" name="Weight22" step="any" >
+            </div>
+
+            <div class="fg">
+                <label for="Rate2">Rate2:</label>
+                <input type="number" id="Rate22" name="Rate22" step="any" >
+            </div>
+
+	    <div class="fg">
+                <label for="CmRateperKG">Cm Rate per KG:</label>
+                <input type="number" id="CmRateperKGg" name="CmRateperKGg" step="any">
+            </div>
+            <div class="fg">
+                <label for="RMPAID">RM Paid:</label>
+                <input type="number" id="RMPAIDd" name="RMPAIDd" >
+            </div>
+
+            <div class="fg">
+                <label for="Details">Details:</label>
+                <input type="text" id="Detailss" name="Detailss">
+            </div>
+
+            <div class="fg">
+                <label for="PaymentDate">Payment Date:</label>
+                <input type="date" id="PaymentDatee" name="PaymentDatee" >
+            </div>
+
+            <div class="fg">
+                <label for="RMAmountDebitedFrom">RM Amount Debited From:</label>
+                <input type="text" id="RMAmountDebitedFromm" name="RMAmountDebitedFromm" >
+            </div>
+
+            <div class="fg">
+                <label for="CMPAID">CM Paid:</label>
+                <input type="number" id="CMPAIDd" name="CMPAIDd" >
+            </div>
+
+            <div class="fg">
+                <label for="Details2">Details 2:</label>
+                <input type="text" id="Details22" name="Details22" >
+            </div>
+
+            <div class="fg">
+                <label for="PaymentDate2">Payment Date 2:</label>
+                <input type="date" id="PaymentDate22" name="PaymentDate22">
+            </div>
+
+            <div class="fg">
+                <label for="CMAmountDebitedFrom">CM Amount Debited From:</label>
+                <input type="text" id="CMAmountDebitedFromm" name="CMAmountDebitedFromm" >
+            </div>
+
+            <div class="fg">
+                <label for="Advances">Advances:</label>
+                <input type="number" id="Advancess" name="Advancess" >
+            </div>
+	</div>
+            <button type="submit" class="add-btn">Submit</button>
+
+        </form>
+    </div>
+</div>
+
+        <!-- Scrollable Table -->
+        <div class="table-container">
+            <table id="harvestTable">
+                <thead>
+                    <tr>
+                    	<th>SLNO</th>
+      			<th>BILL NO</th>
+      			<th>BILL DATE</th>
+      			<th>AGENT</th>
+      			<th>GRADER</th>
+      			<th>SUPERVISER</th>
+      			<th>BATCH</th>
+      			<th>VEHICLE NO</th>
+      			<th>BOXES</th>
+      			<th>COUNT</th>
+      			<th>WEIGHT</th>
+      			<th>RATE</th>
+      			<th>SOFT, VIBRO, PD, L/S, NECROS</th>
+      			<th>WEIGHT2</th>
+      			<th>RATE2</th>
+      			<th>CM RATE PER KG</th>
+      			<th>RM TOTAL</th>
+      			<th>CM TOTAL</th>
+      			<th>RM+CM TOTAL</th>
+      			<th>RM PAID</th>
+      			<th>DETAILS</th>
+      			<th>PAYMENT DATE</th>
+      			<th>RM AMOUNT DEBITED FROM</th>
+      			<th>CM PAID</th>
+      			<th>DETAILS2</th>
+      			<th>PAYMENT DATE 2</th>
+      			<th>CM AMOUNT DEBITED FROM</th>
+      			<th>BALANCE RM PAYMENT</th>
+      			<th>BALANCE CM PAYMENT</th>
+      			<th>PURCHASE EXPENSES</th>
+      			<th>GRAND TOTAL</th>
+      			<th>ADVANCES</th> 
+			<th>ACTIONS</th>   
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Data will be populated here dynamically -->
+                    <% harvest.forEach(item => { %>
+    <tr id="row-<%= item.slno %>">
+        <td><%= item.slno %></td>
+        <td><%= item.billno %></td>
+        <td><%= item.billdate %></td>
+        <td><%= item.agent %></td>
+        <td><%= item.grader %></td>
+        <td><%= item.supervisor %></td>
+        <td><%= item.batch %></td>
+        <td><%= item.vehicleno %></td> 
+        <td><%= item.boxes %></td> 
+        <td><%= item.count %></td> 
+        <td><%= item.weight %></td> 
+        <td><%= item.rate %></td> 
+        <td><%= item.soft %></td>
+        <td><%= item.weight2 %></td>
+        <td><%= item.rate2 %></td>
+        <td><%= item.cmrateperkg %></td>
+        <td><%= item.rmtotal %></td>
+        <td><%= item.cmtotal %></td>
+        <td><%= item.rmcmtotal %></td>
+        <td><%= item.rmpaid %></td>
+        <td><%= item.details %></td>
+        <td><%= item.paymentdate %></td>
+        <td><%= item.rmamountdebitedfrom %></td>
+        <td><%= item.cmpaid %></td>
+        <td><%= item.details2 %></td>
+        <td><%= item.paymentdate2 %></td>
+        <td><%= item.cmamountdebitedfrom %></td>
+        <td><%= item.balancermpayment %></td>
+        <td><%= item.balancecmpayment %></td>
+        <td><%= item.purchesexpences %></td>
+        <td><%= item.grandtotal %></td>
+        <td><%= item.advances %></td>
+
+        <td class="wrp">
+            <button onclick="editForm(<%= item.billno %>, '<%= item.billdate %>', '<%= item.agent %>', '<%= item.grader %>', '<%= item.supervisor %>', '<%= item.batch %>', '<%= item.vehicleno %>', <%= item.boxes %>, <%= item.count %>, <%= item.weight %>, <%= item.rate %>, '<%= item.soft %>', <%= item.weight2 %>, <%= item.rate2 %>, <%= item.cmrateperkg %>, <%= item.rmpaid %>, '<%= item.details %>', '<%= item.paymentdate %>', '<%= item.rmamountdebitedfrom %>', <%= item.cmpaid %>, '<%= item.details2 %>', '<%= item.paymentdate2 %>', '<%= item.cmamountdebitedfrom %>', <%= item.advances %> )">Edit</button>
+
+            <button >Delete</button>
+            <button>View</button>
+        </td>
+    </tr>
+<% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 CYR Sea Foods
+    </footer>
+
+    <script>
+       
+
+       function openForm() {
+    document.getElementById('modal').style.display = "block";
+    document.getElementById('bac').style.display = "block"; 
+    document.getElementById('BillNo').value = '';
+    document.getElementById('BillDate').value = '';
+    document.getElementById('Agent').value = '';
+    document.getElementById('Grader').value = '';
+    document.getElementById('Supervisor').value = '';
+    document.getElementById('Batch').value = '';
+    document.getElementById('VehicleNo').value = '';
+    document.getElementById('Boxes').value = '';
+    document.getElementById('Count').value = '';
+    document.getElementById('Weight').value = '';
+    document.getElementById('Rate').value = '';
+    document.getElementById('SoftVibRol_sNecros').value = '';
+    document.getElementById('Weight2').value = '';
+    document.getElementById('CmRateperKG').value = '';
+    document.getElementById('RMPAID').value = '';
+    document.getElementById('Details').value = '';
+    document.getElementById('PaymentDate').value = '';
+    document.getElementById('RMAmountDebitedFrom').value = '';
+    document.getElementById('CMPAID').value = '';
+    document.getElementById('Details2').value = '';
+    document.getElementById('PaymentDate2').value = '';
+    document.getElementById('CMAmountDebitedFrom').value = '';
+    document.getElementById('Advances').value = '';
+    document.getElementById('BillNo').readOnly = false; 
+}
+
+function editForm(billno, billdate, agent, grader, supervisor, batch, vehicleno, boxes, count, weight, rate, soft, weight2, rate2, cmrateperkg, rmpaid, details, paymentdate, rmamountdebitedfrom, cmpaid, details2, paymentdate2, cmamountdebitedfrom, advances) {
+   
+    document.getElementById('BillNoo').value = billno;
+    document.getElementById('BillDatee').value = billdate;
+    document.getElementById('Agentt').value = agent;
+    document.getElementById('Graderr').value = grader;
+    document.getElementById('Supervisorr').value = supervisor;
+    document.getElementById('Batchh').value = batch;
+    document.getElementById('VehicleNoo').value = vehicleno;
+    document.getElementById('Boxess').value = boxes;
+    document.getElementById('Countt').value = count;
+    document.getElementById('Weightt').value = weight;
+    document.getElementById('Ratee').value = rate;
+    document.getElementById('SoftVibRol_sNecross').value = soft;
+    document.getElementById('Weight22').value = weight2;
+    document.getElementById('Rate22').value = rate2;
+    document.getElementById('CmRateperKGg').value = cmrateperkg;
+    document.getElementById('RMPAIDd').value = rmpaid;
+    document.getElementById('Detailss').value = details;
+    document.getElementById('PaymentDatee').value = paymentdate;
+    document.getElementById('RMAmountDebitedFromm').value = rmamountdebitedfrom;
+    document.getElementById('CMPAIDd').value = cmpaid;
+    document.getElementById('Details22').value = details2;
+    document.getElementById('PaymentDate22').value = paymentdate2;
+    document.getElementById('CMAmountDebitedFromm').value = cmamountdebitedfrom;
+    document.getElementById('Advancess').value = advances;
+    document.getElementById('modall').style.display = "block";
+    document.getElementById('bac').style.display = "block";
+}
+
+
+
+        function closeForm(){
+            document.getElementById('modal').style.display = "none";
+  document.getElementById('modall').style.display = 'none';
+document.getElementById('bac').style.display = "none";
+        }     
+
+        function searchTable() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let table = document.getElementById('harvestTable');
+            let rows = table.getElementsByTagName('tr');
+
+            for (let i = 1; i < rows.length; i++) {
+                let cells = rows[i].getElementsByTagName('td');
+                let match = false;
+
+                for (let j = 0; j < cells.length; j++) {
+                    let cell = cells[j];
+                    if (cell) {
+                        let cellText = cell.textContent || cell.innerText;
+                        if (cellText.toLowerCase().includes(input)) {
+                            match = true;
+                            break;
+                        }
+                    }
+                }
+
+                rows[i].style.display = match ? '' : 'none';
+            }
+        }
+
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            searchTable();
+        }  
+    </script>
+
+</body>
+</html>

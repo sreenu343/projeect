@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website with Header and Navigation Bar</title>
+    <link rel="stylesheet" href="/styles/homestyle.css"> <!-- Corrected path to CSS -->
+<link rel="stylesheet" href="/styles/first.css"> <!-- Corrected path to CSS -->
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+       CYR SEA FOODS
+    </header>
+
+        <!-- Navigation Bar -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="/homePage">Home</a></li>
+            <li><a href="/harvest">Purchase</a></li>
+            <li><a href="#services">Plant Processing</a></li>
+            <li><a href="#contact">Sales</a></li>
+            <li><a href="#contact">Finance & Payments</a></li>
+            <li><a href="#contact">Reports</a></li>
+            <!-- Users Dropdown Menu -->
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Employee</a>
+                <div class="dropdown-content">
+                    <a href="/register">Create Employee</a>  
+                    <a href="/display">Employee Details</a> 
+                    <a href="/cpswd">Enable employee Password</a>
+                </div>
+            </li>
+            
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Profile</a>
+                <div class="dropdown-content">
+                    <a href="/mview">View Profile</a>
+                    <a href="/apswrdc">Change Password</a>
+                </div>
+            </li>
+
+            <!-- Logout Button placed right -->
+            <li class="logout-item"><a href="/logout" class="logout-btn">Logout</a></li>
+        </ul>
+    </nav>
+
+
+    <footer>
+        <p>&copy; 2024 CYR Sea Foods</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+/* Body styling */
+body {
+    margin: 0;
+    background: url('/images/background.jpg'); /* Correct path to the image */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Container styling */
+.container {
+    display: none;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Button styling */
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    margin-top: 50%;
+    cursor: pointer;
+    background-color: #819db5;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.9);
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #308ad9;
+}
+
+/* Link styling */
+a {
+    text-decoration: none;
+}
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    /* Adjust container positioning for smaller screens */
+    .container {
+        top: 70%; /* Move the container slightly lower */
+        width: 85%; /* Allow container to be slightly wider on mobile */
+        padding: 15px;
+    }
+
+    /* Adjust button size for smaller screens */
+    button {
+        padding: 12px 20px;
+        font-size: 16px; /* Make the font smaller on mobile */
+    }
+}
+
+/* Very small screen adjustments (max-width: 480px) */
+@media (max-width: 480px) {
+    /* Adjust button padding and font size further */
+    button {
+        padding: 10px 15px;
+        font-size: 14px; /* Smaller font size for very small screens */
+    }
+
+    /* Make container a little smaller */
+    .container {
+        width: 90%; /* More compact container */
+        max-width: 300px; /* Cap the width for very small screens */
+        top: 75%; /* Move the container further down on very small screens */
+    }
+}

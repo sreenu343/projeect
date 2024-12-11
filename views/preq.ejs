@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/styles/first.css">
+    <title>Change Password</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fc;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+       
+        /* Form Container */
+        .form-container {
+            width: 40%; /* Reduced container width */
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .form-container:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        form div {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input[type="password"]:focus {
+            border-color: #0056b3;
+            box-shadow: 0 0 8px rgba(0, 86, 179, 0.2);
+        }
+
+        .password-feedback {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .valid {
+            color: green;
+        }
+
+        .invalid {
+            color: red;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #003366;
+            transform: translateY(-2px);
+        }
+
+        button[type="submit"]:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        p {
+            text-align: center;
+            font-size: 16px;
+            color: white;
+            margin-top: 5px;
+        }
+
+   
+
+       
+    </style>
+    <script>
+        function validatePassword() {
+            const newPassword = document.getElementById("newPassword").value;
+            const submitButton = document.getElementById("submitButton");
+            const lengthFeedback = document.getElementById("lengthFeedback");
+            const lowercaseFeedback = document.getElementById("lowercaseFeedback");
+            const uppercaseFeedback = document.getElementById("uppercaseFeedback");
+            const digitFeedback = document.getElementById("digitFeedback");
+            const specialCharFeedback = document.getElementById("specialCharFeedback");
+
+            // Regular expressions for each validation check
+            const lengthRegex = /.{8,}/; // At least 8 characters
+            const lowercaseRegex = /[a-z]/; // At least one lowercase letter
+            const uppercaseRegex = /[A-Z]/; // At least one uppercase letter
+            const digitRegex = /\d/; // At least one digit
+            const specialCharRegex = /[!@#$%^&*(),.?":{}|<>]/; // At least one special character
+
+            // Check each validation rule
+            const isLengthValid = lengthRegex.test(newPassword);
+            const isLowercaseValid = lowercaseRegex.test(newPassword);
+            const isUppercaseValid = uppercaseRegex.test(newPassword);
+            const isDigitValid = digitRegex.test(newPassword);
+            const isSpecialCharValid = specialCharRegex.test(newPassword);
+
+            // Update feedback and apply styles
+            lengthFeedback.textContent = isLengthValid ? "✓ At least 8 characters" : "✗ At least 8 characters";
+            lengthFeedback.className = isLengthValid ? "valid" : "invalid";
+
+            lowercaseFeedback.textContent = isLowercaseValid ? "✓ Contains lowercase letter" : "✗ Contains lowercase letter";
+            lowercaseFeedback.className = isLowercaseValid ? "valid" : "invalid";
+
+            uppercaseFeedback.textContent = isUppercaseValid ? "✓ Contains uppercase letter" : "✗ Contains uppercase letter";
+            uppercaseFeedback.className = isUppercaseValid ? "valid" : "invalid";
+
+            digitFeedback.textContent = isDigitValid ? "✓ Contains a digit" : "✗ Contains a digit";
+            digitFeedback.className = isDigitValid ? "valid" : "invalid";
+
+            specialCharFeedback.textContent = isSpecialCharValid ? "✓ Contains a special character" : "✗ Contains a special character";
+            specialCharFeedback.className = isSpecialCharValid ? "valid" : "invalid";
+
+            // Enable submit button only if all validations are true
+            if (isLengthValid && isLowercaseValid && isUppercaseValid && isDigitValid && isSpecialCharValid) {
+                submitButton.disabled = false;
+            } else {
+                submitButton.disabled = true;
+            }
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <div class="text">CYR SEA FOODS</div>
+</header>
+
+<!-- Navigation Bar -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="/ehomePage">Home</a></li>
+            <li><a href="#about">Harvest</a></li>
+            <li><a href="#services">Plant Processing</a></li>
+            <li><a href="#contact">Sales</a></li>
+            
+          
+            
+            <li><a href="#contact">Finance & Payments</a></li>
+            <li><a href="#contact">Reports</a></li>
+ 	 <li class="dropdown">
+                <a href="#" class="dropbtn">Profile</a>
+                <div class="dropdown-content">
+                    <a href="/eview">View</a> 
+                    <a href="/preq">change Password</a>  
+                </div>
+            </li>
+<li><a href="/ecreate">create</a> </li>
+        </ul>
+    </nav>
+
+
+<!-- Password Change Form -->
+<div class="form-container">
+    <h2>Change Your Password</h2>
+    <form action="/preq" method="POST">
+        <div>
+            <label for="oldPassword">Old Password:</label>
+            <input type="password" id="oldPassword" name="oldPassword" required>
+        </div>
+        
+        <div>
+            <label for="newPassword">New Password:</label>
+            <input type="password" id="newPassword" name="newPassword" oninput="validatePassword()" required> 
+            
+            <!-- Validation Feedback -->
+            <div id="lengthFeedback" class="password-feedback"></div>
+            <div id="lowercaseFeedback" class="password-feedback"></div>
+            <div id="uppercaseFeedback" class="password-feedback"></div>
+            <div id="digitFeedback" class="password-feedback"></div>
+            <div id="specialCharFeedback" class="password-feedback"></div>
+        </div>
+
+        <div>
+            <button type="submit" id="submitButton" disabled>Update Password</button>
+        </div>
+    </form>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 CYR Sea Foods. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

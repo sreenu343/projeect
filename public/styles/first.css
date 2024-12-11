@@ -1,0 +1,132 @@
+/* Header Section */
+header {
+    background-color: #36454F;  /* Soft blue for header */
+    color: #FFFFFF;
+    padding: 20px 0;  /* Increased padding */
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);  /* Stronger shadow for header */
+    transition: background-color 0.3s ease;
+font-family: Arial Black;
+font-size: 20px;
+
+}
+
+/* Adjust the logout button on hover */
+.logout-btn:hover {
+    background-color: #c0392b;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1); /* Slight zoom-in effect */
+}
+
+/* Footer Styling */
+footer {
+    background-color:#687282;
+    color: #FFFFFF;
+    font-size: 20px;
+    text-align: center;
+margin-top: auto;
+padding: 15px;
+bottom:0;
+}
+
+
+/* Keyframe Animation for Header */
+@keyframes headerAnimation {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+header {
+    animation: headerAnimation 1s ease-out;
+}
+
+
+/* Navigation Bar */
+nav {
+
+    background: #D3D3D3;  /* Dark background for navigation */
+   
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    transition: background-color 0.3s ease;  /* Smooth background change on scroll */
+}
+
+nav ul {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;  /* Increased spacing between items */
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul .logout-item {
+    margin-left: auto; /* Pushes the logout button to the right */
+}
+
+nav ul li a {
+    color: BLACK;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 12px 20px;
+    border-radius: 40px;  /* More rounded borders */
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effects */
+nav ul li a:hover {
+    background-color: #6dd5ed;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);  /* Slight zoom-in effect on hover */
+    text-decoration: none;
+}
+
+
+/* Dropdown Menu */
+nav ul .dropdown {
+    position: relative;
+}
+
+nav ul .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #36454F;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 4px;
+}
+
+nav ul .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+nav ul .dropdown-content a {
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+    display: block;
+    font-size: 1.1em;
+    
+}
+
+nav ul .dropdown-content a:hover {
+    background-color: skyblue;
+ 
+}
+

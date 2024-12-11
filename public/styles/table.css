@@ -1,0 +1,356 @@
+/* Modal Overlay */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 50; 
+    left: 50%; 
+    top: 50%; 
+    transform: translate(-50%, -50%); 
+    width: 100%;
+    max-width: 1200px; 
+    height: auto; 
+    background-color: rgba(0, 0, 0, 0.4); 
+    overflow: auto; 
+    padding: 20px; 
+}
+.modall{
+    display: none;
+ position: fixed;
+    z-index: 50;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow: auto; 
+    padding: 20px; 
+}
+
+/* Background overlay (darker backdrop for the modal) */
+.bac {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    z-index: 40; 
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    margin: 0;
+    border-radius: 8px;
+    position: relative;
+    z-index: 10;
+    overflow-y: auto;
+    max-height: 80vh;
+}
+
+/* Close button */
+.close-btn {
+    color: red;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+/* Form title */
+#form-title {
+    text-align: center;
+    margin-bottom: 20px; /* Space between title and form */
+}
+
+/* Flex-based form layout */
+#harvest-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Input fields */
+#harvest-form input, #harvest-form textarea {
+    padding: 10px;
+    margin-bottom: 15px; /* Space between inputs */
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%; /* Make inputs fill the width */
+}
+
+/* Textarea specifically */
+#harvest-form textarea {
+    height: 100px; /* Set a fixed height for textareas */
+    resize: vertical; /* Allow users to resize vertically */
+}
+
+/* Submit button */
+button[type="submit"] {
+    padding: 12px 20px;
+    font-size: 1rem;
+    background-color: #f4de34;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: center;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Wrapping long words to avoid breaking layout */
+.wrp {
+    white-space: nowrap;
+}
+
+/* Ensuring the modal works for large forms by enabling scrolling */
+.modal-content {
+    max-height: 80vh; /* Set the maximum height of modal */
+    overflow-y: auto; /* Make content scrollable if it overflows */
+}
+
+
+/* Overlay for modal */
+.bac {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+    z-index: 40; /* Below the modal */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    margin: 0;
+    border-radius: 8px;
+    position: relative;
+    z-index: 10;
+    overflow-y: auto;
+    max-height: 80vh; /* Limit height */
+}
+
+/* Ensuring the modal content height and overflow works correctly */
+.modal-content {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+    white-space: nowrap; 
+    background-color: red;
+position:sticky;
+top:0px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+th:nth-child(1),
+td:nth-child(1){
+position:sticky;
+left:0;
+background-color:skyblue;
+z-index:2;
+}
+
+th:nth-child(2),
+td:nth-child(2){
+position:sticky;
+left:57px;
+background-color:skyblue;
+z-index:2;
+}
+th:nth-child(3),
+td:nth-child(3){
+position:sticky;
+left:140px;
+background-color:skyblue;
+z-index:2;
+}
+th:nth-child(4),
+td:nth-child(4){
+position:sticky;
+left:245px;
+background-color:skyblue;
+z-index:2;
+}
+th:nth-child(5),
+td:nth-child(5){
+position:sticky;
+left:330px;
+background-color:skyblue;
+z-index:2;
+}
+th:nth-child(6),
+td:nth-child(6){
+position:sticky;
+left:420px;
+background-color:skyblue;
+z-index:2;
+}
+th:nth-child(7),
+td:nth-child(7){
+position:sticky;
+left:540px;
+background-color:skyblue;
+z-index:2;
+}
+th:nth-child(1),th:nth-child(2),th:nth-child(3),th:nth-child(4),th:nth-child(5),th:nth-child(6),th:nth-child(7){
+
+background-color:red;
+z-index:3;
+}
+
+
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Action Buttons Styling */
+        .action-btn {
+            padding: 5px 10px;
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .action-btn:hover {
+            opacity: 0.8;
+        }
+
+        .delete-btn {
+            background-color: #f44336;
+        }
+
+        .delete-btn:hover {
+            background-color: #d32f2f;
+        }
+
+        /* Layout Enhancements */
+        .content-container {
+            padding: 0;
+            flex: 1;
+        }
+
+        .top-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0px;
+            position: sticky;
+            top: 50px;
+            z-index: 9;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+        }
+
+        .search-form {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .search-form input {
+            padding: 8px;
+            font-size: 1rem;
+            width: 250px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .search-form button {
+            padding: 8px 12px;
+            font-size: 1rem;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .search-form button:hover {
+            background-color: #45a049;
+        }
+
+        /* Scrollable Table */
+        .table-container {
+            max-height: 500px;
+            overflow-y: auto;
+            margin-top: 20px;
+	    overflow-x: auto;
+        }
+
+.fm {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+/* To create a row with 4 columns */
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);  /* 4 columns, each taking equal space */
+  gap: 15px; /* Space between columns */
+  margin-bottom: 10px;
+}
+
+/* Form group styling */
+.fg {
+  display: flex;
+  flex-direction: column;
+}
+
+.fg label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.fg input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Adjust input widths */
+.fg input {
+  width: 100%;
+}

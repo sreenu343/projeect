@@ -1,0 +1,19 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;  /* Ensures the body takes up the full height of the viewport */
+    
+    background-image: url('/images/pic.jpg');  /* Correct path */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+

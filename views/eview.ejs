@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Profile</title>
+ <link rel="stylesheet" href="/styles/ev.css">
+<link rel="stylesheet" href="/styles/first.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+       CYR SEA FOODS
+    </header>
+
+   <!-- Navigation Bar -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="/ehomePage">Home</a></li>
+            <li><a href="#about">Harvest</a></li>
+            <li><a href="#services">Plant Processing</a></li>
+            <li><a href="#contact">Sales</a></li>
+            
+          
+            
+            <li><a href="#contact">Finance & Payments</a></li>
+            <li><a href="#contact">Reports</a></li>
+ 	 <li class="dropdown">
+                <a href="#" class="dropbtn">Profile</a>
+                <div class="dropdown-content">
+                    <a href="/eview">View</a> 
+                    <a href="/preq">change Password</a>  
+                </div>
+            </li>
+<li><a href="/ecreate">create</a> </li>
+        </ul>
+    </nav>
+
+
+
+    <!-- Employee Profile Information -->
+    <div class="profile-container">
+        <h2>Welcome, <%= employee.FirstName %> <%= employee.LastName %></h2>
+
+        <!-- Profile Cards -->
+           <div class="profile-card">
+            <h4>Employee ID:</h4>
+            <p><%= employee.EmployeeID %></p> <!-- Added EmployeeID -->
+        </div>
+        <div class="profile-card">
+            <h4>First Name:</h4>
+            <p><%= employee.FirstName %></p>
+        </div>
+
+        <div class="profile-card">
+            <h4>Last Name:</h4>
+            <p><%= employee.LastName %></p>
+        </div>
+
+        <div class="profile-card">
+            <h4>Phone Number:</h4>
+            <p><%= employee.PhoneNumber %></p>
+        </div>
+
+        <div class="profile-card">
+            <h4>Job Title:</h4>
+            <p><%= employee.JobTitle %></p>
+        </div>
+
+        <div class="profile-card">
+            <h4>Department:</h4>
+            <p><%= employee.DepartmentName %></p>
+        </div>
+
+        <div class="profile-card">
+            <h4>Email:</h4>
+            <p><%= employee.Email %></p>
+        </div>
+
+        <div class="profile-card">
+            <h4>Address:</h4>
+            <p><%= employee.Address %></p>
+        </div>
+
+        <div class="profile-card">
+            <h4>Last Updated:</h4>
+            <p><%= employee.UpdatedAt %></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-spacer"></div>
+    <footer>
+        <p>&copy; 2024 CYR Sea Foods</p>
+    </footer>
+
+</body>
+</html>

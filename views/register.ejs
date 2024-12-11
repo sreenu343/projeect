@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Employee</title>
+    <link rel="stylesheet" href="/styles/reg.css">
+<link rel="stylesheet" href="/styles/first.css"> <!-- Corrected path to CSS -->
+</head>
+<body>
+
+<header>
+    <div class="text">CYR SEA FOODS</div>
+</header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="/homePage">Home</a></li>
+            <li><a href="/harvest">Purchase</a></li>
+            <li><a href="#services">Plant Processing</a></li>
+            <li><a href="#contact">Sales</a></li>
+            <li><a href="#contact">Finance & Payments</a></li>
+            <li><a href="#contact">Reports</a></li>
+            <!-- Users Dropdown Menu -->
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Employee</a>
+                <div class="dropdown-content">
+                    <a href="/register">Create Employee</a>  
+                    <a href="/display">Employee Details</a> 
+                    <a href="/cpswd">Enable employee Password</a>
+                </div>
+            </li>
+            
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Profile</a>
+                <div class="dropdown-content">
+                    <a href="/mview">View Profile</a>
+                    <a href="/apswrdc">Change Password</a>
+                </div>
+            </li>
+
+            <!-- Logout Button placed right -->
+            <li class="logout-item"><a href="/logout" class="logout-btn">Logout</a></li>
+        </ul>
+    </nav>
+
+
+<!-- Registration Form -->
+<form action="/register" method="POST">
+    <h1>Register Employee</h1>
+
+    <!-- First Name -->
+    <div class="input-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" name="firstName" required>
+    </div>
+
+    <!-- Last Name -->
+    <div class="input-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" name="lastName" required>
+    </div>
+
+    <!-- Email -->
+    <div class="input-group">
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required>
+    </div>
+
+    <!-- Phone Number -->
+    <div class="input-group">
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="tel" name="phoneNumber" required>
+    </div>
+
+ <!-- Department Name -->
+    <div class="input-group">
+        <label for="DepartmentName">Department:</label>
+        <select name="DepartmentName" required>
+            <option value="Sales">Office</option>
+            <option value="Finance">Plant</option>
+            
+        </select>
+    </div>
+
+    <!-- Job Title -->
+    <div class="input-group">
+        <label for="jobTitle">Job Title:</label>
+        <select name="jobTitle" required>
+            <option value="Manager">Accountant1</option>
+	    <option value="Manager">Accountant2</option>
+<option value="Manager">Accountant3</option>
+	    <option value="documentor">Export Documentor</option>
+            <option value="Supervisor">CA</option>
+           
+            
+        </select>
+    </div>
+
+       <!-- Address -->
+    <div class="input-group">
+        <label for="address">Address:</label>
+        <textarea name="address" required></textarea>
+    </div>
+
+<div class="input-group">
+        <label for="permission">Role:</label>
+        <select name="permission" required>
+            <option value="Admin">Admin</option>
+            <option value="Employee">Employee</option>
+            
+        </select>
+    </div>
+
+    <!-- OTP Section -->
+    <div class="input-group">
+        <input type="text" name="otp" id="otp" placeholder="Enter OTP">
+        <button type="button" onclick="sendOtp()">Send OTP</button>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit">Register</button>
+</form>
+
+<script>
+    function sendOtp() {
+        const email = document.getElementById('email').value;
+        if (email) {
+            fetch('/send-otp', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email: email })
+            })
+            .then(response => response.json())
+            .then(data => alert(data.message))
+            .catch(error => alert('Error sending OTP'));
+        } else {
+            alert('Please enter a valid email');
+        }
+    }
+</script>
+ <footer>
+        <p>&copy; 2024 CYR Sea Foods</p>
+    </footer>
+
+</body>
+</html>

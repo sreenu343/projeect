@@ -1,0 +1,70 @@
+
+        /* Reset and basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+           
+            background: #f4f7f6;
+            color: #333;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+       
+        /* Profile Section */
+        .profile-container {
+            background: white;
+            width: 60%;
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .profile-container h2 {
+            font-size: 1.8em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        /* Profile Card-style */
+        .profile-card {
+            background: #ffffff;
+            margin-bottom: 12px;
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+            display: grid;
+            grid-template-columns: 1fr 2fr; /* Label on left, value on right */
+            gap: 10px; /* Add gap between label and value */
+        }
+
+        .profile-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-card h4 {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .profile-card p {
+            font-size: 1em;
+            color: #666;
+            margin: 0;
+        }
